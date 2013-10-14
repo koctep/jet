@@ -1,0 +1,11 @@
+{application, jet,
+ [
+  {description, ""},
+  {vsn, "0.0"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {env, []}
+ ]}.
