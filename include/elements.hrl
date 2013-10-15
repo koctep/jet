@@ -1,0 +1,2 @@
+-record(startElement, {uri, lname, qname, attributes = []}).
+-record(endElement, {uri, lname, qname}).
