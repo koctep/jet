@@ -1,5 +1,6 @@
 -module(jet_socket).
 
+-export([connect/0]).
 -export([connect/4]).
 -export([connect/5]).
 -export([upgrade/3]).
@@ -19,6 +20,12 @@
 -include("messages.hrl").
 -include("elements.hrl").
 
+connect() ->
+	{ok, Host} = application:get_env(host),
+	{ok, Port} = application:get_env(port),
+	{ok, Name} = application:get_env(name),
+	{ok, Passwd} = application:get_env(password),
+	connect(Host, Port, Name, Passwd).
 connect(Host, Port, Name, Passwd) -> connect(Host, Port, Name, Passwd, 5000).
 connect(Host, Port, Name, Passwd, Timeout) ->
   {ok, Socket} = gen_tcp:connect(Host, Port, [binary, {active, true}, {buffer, 65535}], Timeout),
